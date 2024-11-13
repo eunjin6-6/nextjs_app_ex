@@ -1,10 +1,15 @@
 //"use client" ->일부분만으로 변경
 
 //import localFont from "next/font/local"; //컴퓨터에 있는 폰트 로드
-import Link from "next/link";
 import "./globals.css";
+import Link from "next/link";
 import Image from "next/image";
+import Control from "./read/[id]/Control";
 // import { useEffect, useState } from "react";
+
+
+
+
 
 /*
 const geistSans = localFont({
@@ -26,6 +31,7 @@ export const metadata = {
 };
 
 
+
 export default async function RootLayout({ children }) {
   
   /*
@@ -43,7 +49,8 @@ export default async function RootLayout({ children }) {
 
   //console.log(topics); //데이터 배열로 저장되어있음
   
-  //목록출력
+  //목록출력 
+  //{ cache:  'no-store' } //0초후 폐기
   const response = await fetch('http://localhost:9999/topics');
   const topics = await response.json(); //json->object
 
@@ -73,11 +80,7 @@ export default async function RootLayout({ children }) {
           </ol>
         </nav>
         {children}
-        <ul>
-          <li><Link href="/create">Create</Link></li>
-          <li><Link href="/update/1">Update</Link></li>
-          <li><button>delete</button></li>
-        </ul>
+        <Control/>   
       </body>
     </html>
   );
