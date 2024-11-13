@@ -43,9 +43,9 @@ export default async function RootLayout({ children }) {
 
   //console.log(topics); //데이터 배열로 저장되어있음
   
+  //목록출력
   const response = await fetch('http://localhost:9999/topics');
   const topics = await response.json(); //json->object
-
 
   return (
     <html lang="en">
