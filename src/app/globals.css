@@ -40,3 +40,11 @@ a {
     color-scheme: dark;
   }
 } */
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
