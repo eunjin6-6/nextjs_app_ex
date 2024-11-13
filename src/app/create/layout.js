@@ -2,9 +2,9 @@
 
 export default function Layout(props) {
   return (
-    <form>
+    <div>
       <h2>Create</h2>
       {props.children}
-    </form>
+    </div>
   );
 }
