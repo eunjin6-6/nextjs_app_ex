@@ -12,7 +12,7 @@ const Control = ()=>{
   const deleteTopic = ()=>{
     const option = {method: 'DELETE'};
 
-    fetch('http://localhost:9999/topics/'+id, option)
+    fetch(process.env.NEXT_PUBLIC_API_URL+'topics/'+id, option)
     .then(res=>{
        return res.json();//json->object
     })

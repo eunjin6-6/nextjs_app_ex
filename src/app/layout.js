@@ -34,7 +34,7 @@ export default async function RootLayout({ children }) {
   /* client 컴포넌트에서 데이터 조회하는 방식
   const [topics, setTopics] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:9999/topics')
+    fetch('process.env.NEXT_PUBLIC_API_URL+'topics')
     .then(res=>{
        return res.json();//json->object
     })
@@ -49,7 +49,7 @@ export default async function RootLayout({ children }) {
   //server 형 컴포넌트에서 데이터 조회하는 방식
   //목록출력 
   //{ cache:  'no-store' } //0초후 폐기
-  const response = await fetch('http://localhost:9999/topics');
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL+'topics');
   const topics = await response.json(); //json->object
 
   return (
