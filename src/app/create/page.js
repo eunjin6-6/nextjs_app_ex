@@ -20,7 +20,7 @@ export default function Create() {
       .then(res=>res.json()) //결과를 object 객체로 변환
       .then(result =>{
         console.log(result);
-        router.push(`/read/${result.id}`);
+        router.push('/');
         router.refresh();
       }); //결과를 object 객체로 변환
 
