@@ -1,13 +1,27 @@
-export default async function Read(props) {
+// app/read/[id]/page.js
 
-  const response = await fetch(process.env.NEXT_PUBLIC_API_URL+`topics/${props.params.id}`);
-  const topic = await response.json(); //json->object
+// 모든 가능한 id 값을 반환하는 generateStaticParams 함수
+export async function generateStaticParams() {
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}topics`);
+  const topics = await resp.json() ;//json->object
+ 
+  return topics.map((topic) => ({
+    id: topic.id.toString(),
+  }));
+}
+
+
+export default async function Read({ params }) { //위에서 조회된 숫자 가져옴
+  // 개별 topic 데이터를 가져옴
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}topics/${params.id}`);
+  const topic = await resp.json();
+
 
   return (
-    <div> 
-       <h2>{topic.title}</h2>
-       <p>{topic.body}</p> 
-      {/* <p>parameter : {props.params.id}</p> */}
-    </div>
+    <>
+      <h2>{topic.title}</h2>
+      <p>{topic.body}</p>
+    </>
   );
 }
+
